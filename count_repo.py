@@ -11,9 +11,7 @@ for repo in repos:
     subprocess.getoutput('git clone git@github.com:{}/{} temp_linecount_repo'.format(username, repo))
     output = subprocess.getoutput('cloc temp_linecount_repo --report-file=./reports/{}_{}_report'.format(username, repo))
     subprocess.getoutput('rm -rf temp_linecount_repo')
-    # print('cloc-git git@github.com:ABC10946/{}'.format(repo))
 
 repos_reports = ['./reports/' + username + '_' + repo + '_report' for repo in repos]
-print(repos_reports)
 
 print(subprocess.getoutput('cloc --sum-reports {}'.format(' '.join(repos_reports))))
